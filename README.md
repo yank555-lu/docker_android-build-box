@@ -23,9 +23,10 @@ Use following command to run the image :
         android-build-box \
         bash
 
-Use the following command if you want to bind-mount your local sources and out folders :
+Use the following command if you want to bind-mount your local sources and out folders, as well as your local ssh credentials (read-only) :
 
     docker run --rm -it \
+        -v ~/.ssh:/home/$USER/.ssh:ro \
         -v <local out folder>:/home/out \
         -v <local sources folder>:/home/source \
         -h android-build-box \
