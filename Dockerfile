@@ -66,6 +66,7 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
     gperf \
     zip \
     curl \
+    gnutls-bin \
     zlib1g-dev \
     gcc-multilib \
     g++-multilib \
@@ -121,3 +122,4 @@ WORKDIR /home/source
 # Configure git identity
 RUN git config --global user.email "$GIT_EMAIL"
 RUN git config --global user.name "$GIT_NAME"
+RUN git config --global http.postBuffer 1048576000
