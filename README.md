@@ -14,21 +14,28 @@ Additionally, it will also preconfigure your git identity.
         --build-arg GIT_EMAIL="<your email-address>" \
         .
 
+This image will expect the following locations to contain :
+
+    /home/sources : sources to compile
+    /home/ccache  : ccache
+    /home/out     : out folder
+
 ## Run Image ##
 
-Use following command to run the image :
+Use following command to simply run the image :
 
     docker run --rm -it \
         -h android-build-box \
         android-build-box \
         bash
 
-Use the following command if you want to bind-mount your local sources and out folders, as well as your local ssh credentials (read-only) :
+Use the following command if you want to bind-mount your local sources, ccache and out folders, as well as your local ssh credentials (read-only) :
 
     docker run --rm -it \
         -v ~/.ssh:/home/$USER/.ssh:ro \
-        -v <local out folder>:/home/out \
         -v <local sources folder>:/home/source \
+        -v <local ccache folder>:/home/ccache \
+        -v <local out folder>:/home/out \
         -h android-build-box \
         android-build-box \
         bash

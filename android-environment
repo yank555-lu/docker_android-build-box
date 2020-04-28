@@ -11,7 +11,7 @@ export PATH
 
 # Set up cache to build Android ROMs
 export USE_CCACHE=1
-export CCACHE_DIR=/home/out/ccache.androidbuildbox
+export CCACHE_DIR=/home/ccache
 export CCACHE_EXEC=/usr/bin/ccache
 export LC_ALL=C
 

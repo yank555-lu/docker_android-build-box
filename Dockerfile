@@ -40,6 +40,10 @@ RUN mkdir /home/out
 RUN chown $USER_NAME:$USER_NAME /home/out
 RUN chmod 755 /home/out
 
+RUN mkdir /home/ccache
+RUN chown $USER_NAME:$USER_NAME /home/ccache
+RUN chmod 755 /home/ccache
+
 RUN mkdir /home/$USER_NAME/.ssh
 RUN chown $USER_NAME:$USER_NAME /home/$USER_NAME/.ssh
 RUN chmod 700 /home/$USER_NAME/.ssh
