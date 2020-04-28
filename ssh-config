@@ -1,0 +1,3 @@
+Host *
+  TCPKeepAlive yes
+  ServerAliveInterval 120

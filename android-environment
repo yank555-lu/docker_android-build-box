@@ -1,0 +1,45 @@
+# Prepare Android Build Environment
+#
+# 2020-04-27 by Yank555.lu
+
+clear
+
+# Add user bin support
+PATH=~/bin:$PATH
+
+export PATH
+
+# Set up cache to build Android ROMs
+export USE_CCACHE=1
+export CCACHE_DIR=/home/out/ccache.androidbuildbox
+export CCACHE_EXEC=/usr/bin/ccache
+export LC_ALL=C
+
+# Set out dir
+export OUT_DIR_COMMON_BASE=/home/out
+
+# Define aliases to ease things up
+alias cdout='cd /home/out'
+alias cdroms='cd /home/source'
+alias makeclean='make clean'
+alias envsetup='source build/envsetup.sh;croot'
+
+echo "Available Aliases"
+echo "-----------------"
+echo " "
+echo "  cdout       : go to root of out folder"
+echo "  cdroms      : go to root of rom sources folder"
+echo "  makeclean   : remove previous compilation data"
+echo "  envsetup    : source build environment config in current path"
+echo " "
+echo "Current config"
+echo "--------------"
+echo " "
+echo "  CCACHE DIR  : $CCACHE_DIR"
+echo "  CCACHE EXEC : $CCACHE_EXEC"
+echo "  OUT DIR     : $OUT_DIR_COMMON_BASE"
+echo " "
+echo "Available sources"
+echo "-----------------"
+echo " "
+l /home/source
