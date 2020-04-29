@@ -60,6 +60,8 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
     cpio \
     apt-utils \
     net-tools \
+    dnsutils \
+    inetutils-ping \
     traceroute \
     ccache \
     flex \
