@@ -57,6 +57,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
     build-essential \
     file \
+    cpio \
     apt-utils \
     net-tools \
     traceroute \
