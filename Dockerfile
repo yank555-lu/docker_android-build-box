@@ -11,8 +11,11 @@ ARG USER_ID
 ARG GROUP_ID
 ARG GIT_NAME
 ARG GIT_EMAIL
+ARG ROOT_PASSWD
 
-# Setup user and folders
+# Setup users and folders
+RUN echo "root:$ROOT_PASSWD" | chpasswd
+
 RUN addgroup --gid $GROUP_ID $USER_NAME
 RUN adduser --home /home/$USER_NAME --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID $USER_NAME
 

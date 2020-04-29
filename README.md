@@ -12,6 +12,7 @@ Additionally, it will also preconfigure your git identity.
         --build-arg GROUP_ID=$(id -g) \
         --build-arg GIT_NAME="<your name>" \
         --build-arg GIT_EMAIL="<your email-address>" \
+        --build-arg ROOT_PASSWD="<your root password>" \
         .
 
 This image will expect the following locations to contain :
