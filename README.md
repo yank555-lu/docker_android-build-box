@@ -6,7 +6,7 @@ It will include a container user that matches the user and group IDs and names o
 
 Additionally, it will also preconfigure your git identity.
 
-    docker build -t android-build-box \
+    docker build -t android-build-box:focal \
         --build-arg USER_NAME=$USER \
         --build-arg USER_ID=$(id -u) \
         --build-arg GROUP_ID=$(id -g) \
@@ -27,7 +27,7 @@ Use following command to simply run the image :
 
     docker run --rm -it \
         -h android-build-box \
-        android-build-box \
+        android-build-box:focal \
         bash
 
 Use the following command if you want to bind-mount your local sources, ccache and out folders, as well as your local ssh credentials (read-only) :
@@ -38,7 +38,7 @@ Use the following command if you want to bind-mount your local sources, ccache a
         -v <local ccache folder>:/home/ccache \
         -v <local out folder>:/home/out \
         -h android-build-box \
-        android-build-box \
+        android-build-box:focal \
         bash
 
 * Note : In both cases, the container will be autoremoved on exit, if you want to keep the container, omit "--rm".
