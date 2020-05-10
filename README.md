@@ -26,6 +26,7 @@ This image will expect the following locations to contain :
 Use following command to simply run the image :
 
     docker run --rm -it \
+        --privileged \
         -h android-build-box \
         android-build-box:focal \
         bash
@@ -33,6 +34,7 @@ Use following command to simply run the image :
 Use the following command if you want to bind-mount your local sources, ccache and out folders, as well as your local ssh credentials (read-only) :
 
     docker run --rm -it \
+        --privileged \
         -v ~/.ssh:/home/$USER/.ssh:ro \
         -v <local sources folder>:/home/source \
         -v <local ccache folder>:/home/ccache \
@@ -41,7 +43,10 @@ Use the following command if you want to bind-mount your local sources, ccache a
         android-build-box:focal \
         bash
 
-* Note : In both cases, the container will be autoremoved on exit, if you want to keep the container, omit "--rm".
+Note :
+
+* In both cases, the container will be autoremoved on exit, if you want to keep the container, omit "--rm".
+* '--privileged' flag is needed to allow nsjail to operate properly (this may become fatal in the future).
 
 ## Inspiration and Thanks ##
 
