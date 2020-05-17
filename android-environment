@@ -12,7 +12,11 @@ export PATH
 # Set up cache to build Android ROMs
 export USE_CCACHE=1
 export CCACHE_DIR=/home/ccache
-export CCACHE_EXEC=/usr/bin/ccache
+export CCACHE_EXEC=$(which ccache)
+export CCACHE_NLEVELS=4
+export CCACHE_COMPILERCHECK=content
+export CCACHE_NOHASHDIR=true
+
 export LC_ALL=C
 
 # Set out dir
