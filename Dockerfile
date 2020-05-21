@@ -41,7 +41,7 @@ RUN chmod 755 /home/source
 
 RUN mkdir /home/out
 RUN chown $USER_NAME:$USER_NAME /home/out
-RUN chmod 755 /home/out
+RUN chmod 777 /home/out
 
 RUN mkdir /home/ccache
 RUN chown $USER_NAME:$USER_NAME /home/ccache

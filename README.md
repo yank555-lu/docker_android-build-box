@@ -43,9 +43,21 @@ Use the following command if you want to bind-mount your local sources, ccache a
         android-build-box:focal \
         bash
 
+Use the following command if you want to bind-mount your local sources and ccache folders, and use a ramdisk for out, as well as your local ssh credentials (read-only) :
+
+    docker run --rm -it \
+        --privileged \
+        -v ~/.ssh:/home/$USER/.ssh:ro \
+        -v <local sources folder>:/home/source \
+        -v <local ccache folder>:/home/ccache \
+        --tmpfs /home/out:rw,exec,size=92G \
+        -h android-build-box \
+        android-build-box:focal \
+        bash
+
 Note :
 
-* In both cases, the container will be autoremoved on exit, if you want to keep the container, omit "--rm".
+* In all cases, the container will be autoremoved on exit, if you want to keep the container, omit "--rm".
 * '--privileged' flag is needed to allow nsjail to operate properly (this may become fatal in the future).
 
 ## Inspiration and Thanks ##
