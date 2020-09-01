@@ -131,3 +131,4 @@ RUN git config --global user.email "$GIT_EMAIL"
 RUN git config --global user.name "$GIT_NAME"
 RUN git config --global http.postBuffer 1048576000
 RUN git config --global color.ui auto
+RUN echo `date +'%d/%m/%y %H:%M:%S'` > /home/$USER_NAME/.docker.image.timestamp
